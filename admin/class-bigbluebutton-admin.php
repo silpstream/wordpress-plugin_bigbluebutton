@@ -278,7 +278,7 @@ class Bigbluebutton_Admin {
 	 * @return  Integer 1|2|3   If the room servers have been changed or not.
 	 *                          0 - failure
 	 *                          1 - success
-	 *                          2 - bad url format
+	 *                          2 - bad url format (removed by silpstream)
 	 *                          3 - bad bigbluebutton settings configuration
 	 */
 	private function room_server_settings_change() {
@@ -292,9 +292,11 @@ class Bigbluebutton_Admin {
 				return 3;
 			}
 
+			/*
 			if ( substr_compare( $bbb_url, 'bigbluebutton/', strlen( $bbb_url ) - 14 ) !== 0 ) {
 				return 2;
 			}
+			*/
 
 			update_option( 'bigbluebutton_url', $bbb_url );
 			update_option( 'bigbluebutton_salt', $bbb_salt );

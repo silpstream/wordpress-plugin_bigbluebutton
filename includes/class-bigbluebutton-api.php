@@ -360,9 +360,10 @@ class Bigbluebutton_Api {
 	 *
 	 * @param   String $url        URL to get response from.
 	 * @return  Array|WP_Error  $response   Server response in array format.
+	 * silpstream added timeout.
 	 */
 	private static function get_response( $url ) {
-		$result = wp_remote_get( esc_url_raw( $url ) );
+		$result = wp_remote_get( esc_url_raw( $url ) , array( 'timeout' => 180 ));
 		return $result;
 	}
 
